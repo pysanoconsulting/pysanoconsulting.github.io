@@ -26,7 +26,26 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+}
+
+.insight {
+    width: 25%;
+    height: 150px;
+}
+.el {
+    width: 50px;
+    height: 50px;
+    background-color: #c2a988;
+    margin: 10px;
+}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
 </head>
 <body>
 
@@ -82,7 +101,7 @@ body, html {
 <!-- Promo Section - "We know design" -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px">
   <div class="w3-row-padding">
-    <div class="w3-col m6">
+    <div class="w3-col w3-third">
       <h3>Data and User Lead Consulting.</h3>
       <p>We are a team of researchers with decades worth of academic and private sector experience. </p>
       <p>We are passionate about delivering expert insight for teams and companies with quantitative and/or qualitative research needs. </p>
@@ -90,8 +109,22 @@ body, html {
 
       <p><a href="#team" class="w3-button w3-black"><i class="fa fa-th"> </i> Meet the Team</a></p>
     </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large w3-grayscale-min" src="pic/ScreenshotTerminal.png" alt="Data Analysis" width="1400" height="800">
+    <div class="w3-col w3-third">
+	<!-- <img class="w3-image w3-round-large w3-grayscale-min" src="pic/ScreenshotTerminal.png" alt="Data Analysis" width="1400" height="800" alt="Background Image" class="background-image"> -->
+      <div class="w3-card w3-container" style="min-height:460px">
+	<h3>Converting Data to Insight</h3><br>	
+          <div class="insight">
+            <!-- Elements for insight -->
+            <div class="colors-demo">
+              <div class="color-hex el"></div>
+              <div class="color-rgb el"></div>
+              <div class="color-hsl el"></div>
+              <div class="color-rgba el"></div>
+              <div class="color-hsla el"></div>
+            </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -315,17 +348,17 @@ body, html {
     <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Glasgow, UK</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: pysano.contact@pm.me</p>
     <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
+    <!-- <form action="/action_page.php" target="_blank"> -->
+    <!--   <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p> -->
+    <!--   <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p> -->
+    <!--   <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p> -->
+    <!--   <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p> -->
+    <!--   <p> -->
+    <!--     <button class="w3-button w3-black" type="submit"> -->
+    <!--       <i class="fa fa-paper-plane"></i> SEND MESSAGE -->
+    <!--     </button> -->
+    <!--   </p> -->
+    <!-- </form> -->
     <!-- Image of location/map -->
     <img src="pic/stag.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
   </div>
@@ -370,6 +403,19 @@ function w3_open() {
 function w3_close() {
     mySidebar.style.display = "none";
 }
+        var colorsExamples = anime.timeline({
+            endDelay: 1000,
+            easing: 'easeInOutQuad',
+            direction: 'alternate',
+            loop: true
+        })
+        .add({ targets: '.color-hex',  background: '#FFF' }, 0)
+        .add({ targets: '.color-rgb',  background: 'rgb(255,255,255)' }, 0)
+        .add({ targets: '.color-hsl',  background: 'hsl(0, 100%, 100%)' }, 0)
+        .add({ targets: '.color-rgba', background: '#88C2A0' }, 0)
+        .add({ targets: '.color-hsla', background: '#88C2A0' }, 0)
+        .add({ targets: '.colors-demo .el', translateX: 400, delay: anime.stagger(100) }, 0);
+
 </script>
 
 </body>
