@@ -42,10 +42,10 @@ body, html {
     /* height: 150px; */
 }
 .el {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #c2a988;
-    margin: 10px;
+    margin: 8px;
 }
 @media (max-width: 600px) {
     .el {
@@ -127,11 +127,14 @@ body, html {
           <div class="insight">
             <!-- Elements for insight -->
             <div class="colors-demo">
-              <div class="color-hex el"></div>
-              <div class="color-rgb el"></div>
-              <div class="color-hsl el"></div>
-              <div class="color-rgba el"></div>
-              <div class="color-hsla el"></div>
+              <div class="color-1 el"></div>
+              <div class="color-2 el"></div>
+              <div class="color-3 el"></div>
+              <div class="color-4 el"></div>
+              <div class="color-5 el"></div>
+              <div class="color-6 el"></div>
+              <div class="color-7 el"></div>
+              <div class="color-8 el"></div>
             </div>
 
         </div>
@@ -422,11 +425,14 @@ var colorsExamples = anime.timeline({
     direction: 'alternate',
     loop: true
 })
-.add({ targets: '.color-hex',  background: '#FFF' }, 0)
-.add({ targets: '.color-rgb',  background: '#FFF' }, 0)
-.add({ targets: '.color-hsl',  background: '#FFF' }, 0)
-.add({ targets: '.color-rgba', background: '#88C2A0' }, 0)
-.add({ targets: '.color-hsla', background: '#88C2A0' }, 0)
+.add({ targets: '.color-1',  background: '#88C2A0',borderRadius: ['0%', '50%'] }, 0)
+.add({ targets: '.color-2',  background: '#FFF' }, 0)
+.add({ targets: '.color-3',  background: '#FFF' }, 0)
+.add({ targets: '.color-4', background: '#7AAAC1' }, 0)
+.add({ targets: '.color-5', background: '#88C2A0',borderRadius: ['0%', '50%'] }, 0)
+.add({ targets: '.color-6',  background: '#FFF' }, 0)
+.add({ targets: '.color-7', background: '#88C2A0' }, 0)
+.add({ targets: '.color-8',  background: '#FFF' }, 0)
 .add({ targets: '.colors-demo .el', translateX: translateXValue, delay: anime.stagger(100) }, 0);
 
 </script>
