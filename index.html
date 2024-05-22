@@ -34,14 +34,25 @@ body, html {
 }
 
 .insight {
-    width: 25%;
-    height: 150px;
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the insight container */
+    /* width: 25%; */
+    /* height: 150px; */
 }
 .el {
     width: 50px;
     height: 50px;
     background-color: #c2a988;
     margin: 10px;
+}
+@media (max-width: 600px) {
+    .el {
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+    }
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -403,18 +414,20 @@ function w3_open() {
 function w3_close() {
     mySidebar.style.display = "none";
 }
-        var colorsExamples = anime.timeline({
-            endDelay: 1000,
-            easing: 'easeInOutQuad',
-            direction: 'alternate',
-            loop: true
-        })
-        .add({ targets: '.color-hex',  background: '#FFF' }, 0)
-        .add({ targets: '.color-rgb',  background: 'rgb(255,255,255)' }, 0)
-        .add({ targets: '.color-hsl',  background: 'hsl(0, 100%, 100%)' }, 0)
-        .add({ targets: '.color-rgba', background: '#88C2A0' }, 0)
-        .add({ targets: '.color-hsla', background: '#88C2A0' }, 0)
-        .add({ targets: '.colors-demo .el', translateX: 400, delay: anime.stagger(100) }, 0);
+var translateXValue = window.innerWidth > 600 ? 350 : 200;
+  
+var colorsExamples = anime.timeline({
+    endDelay: 1000,
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+    loop: true
+})
+.add({ targets: '.color-hex',  background: '#FFF' }, 0)
+.add({ targets: '.color-rgb',  background: '#FFF' }, 0)
+.add({ targets: '.color-hsl',  background: '#FFF' }, 0)
+.add({ targets: '.color-rgba', background: '#88C2A0' }, 0)
+.add({ targets: '.color-hsla', background: '#88C2A0' }, 0)
+.add({ targets: '.colors-demo .el', translateX: translateXValue, delay: anime.stagger(100) }, 0);
 
 </script>
 
